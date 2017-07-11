@@ -23,7 +23,10 @@
 #include <boost/lexical_cast.hpp>
 ///////////////////
 
+///////////////////
+//internal includes
 #include <MeshConverter.hpp>
+///////////////////
 
 ///////////////////
 //const values
@@ -43,8 +46,10 @@ void printHelp()
 }
 
 
-int initConfig(int argc, char **argv, QVParameters &params)
+int initConfig(int argc, char **argv)
 {
+	// TODO: add QVParameters &params
+
     bool quitOnExit = false;
     bool parseOn = false;
     bool loadGeometry = false;
@@ -142,7 +147,7 @@ int initConfig(int argc, char **argv, QVParameters &params)
     if (QVConfig::ReadFile(configFile, fileContents, true) == 0)
         QVLogger::LogInfo("Using default initializers.\n");
 
-    QVConfig::ParseConfig(fileContents, params);
+    // TODO: QVConfig::ParseConfig(fileContents, params);
 
 
     if (parseOn || subdivisionOn || loadGeometry || exportGeometry || performAction)
@@ -217,8 +222,7 @@ void testing()
 
 int main(int argc, char **argv)
 {
-    //QVParameters params;
-    //initConfig(argc, argv, params);
+    //initConfig(argc, argv);
 
     // CURRENTLY ONLY RUNNING SOME TEST CODE
     testing();
